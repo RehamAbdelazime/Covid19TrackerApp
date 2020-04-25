@@ -1,10 +1,14 @@
 package com.reham.covid19tracker.ui.main;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.reham.covid19tracker.R;
+import com.reham.covid19tracker.ui.home.HomeFragment;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -18,13 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_country)
-                .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(navView, navController);
     }
-
 }

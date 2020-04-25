@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+    >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            >
+
+            <ImageView
+                android:id="@+id/img_countryFlag"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:padding="8dp"
+                android:contentDescription="@string/country_flag"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/tv_countryName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                tools:text="EGYPT"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:padding="8dp"
+
+                />
+        </LinearLayout>
+
+        <View style="@style/Divider"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/cases"
+                android:textAlignment="center"
+                style="@style/TextAppearance.AppCompat.Subhead"
+                android:layout_weight="1"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/recovered"
+                android:textAlignment="center"
+                style="@style/TextAppearance.AppCompat.Subhead"
+                android:layout_weight="1"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/deaths"
+                style="@style/TextAppearance.AppCompat.Subhead"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            >
+            <TextView
+                android:id="@+id/tv_countryCases"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                tools:text="@string/cases"
+                android:textAlignment="center"
+                style="@style/TextAppearance.AppCompat.Subhead"
+                android:layout_weight="1"
+                android:textColor="@color/colorTotalConfirmed"
+                />
+            <TextView
+                android:id="@+id/tv_countryRecovered"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                tools:text="0"
+                android:textAlignment="center"
+                style="@style/TextAppearance.AppCompat.Subhead"
+                android:layout_weight="1"
+                android:textColor="@color/colorTotalRecovered"
+                />
+            <TextView
+                android:id="@+id/tv_countryDeaths"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                tools:text="75111"
+                style="@style/TextAppearance.AppCompat.Subhead"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textColor="@color/colorTotalDeaths"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>
