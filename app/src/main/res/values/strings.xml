@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Covid19Tracker</string>
+    <string name="title_home">Home</string>
+    <string name="title_country">Country</string>
+    <string name="positive">Positive</string>
+    <string name="confirmed">Confirmed</string>
+    <string name="recovered">Recovered</string>
+    <string name="deaths">Deaths</string>
+    <string name="title">Covid-19 World Tracker</string>
+    <string name="cases">cases</string>
+    <string name="today_cases">Today Cases</string>
+    <string name="today_deaths">Today Deaths</string>
+    <string name="critical_cases">Critical Cases</string>
+    <string name="cases_per_million">Cases Per Million</string>
+    <string name="deaths_per_million">Deaths Per Million</string>
+    <string name="affected_countries">Affected Countries</string>
+    <string name="background_image">background image</string>
+</resources>
