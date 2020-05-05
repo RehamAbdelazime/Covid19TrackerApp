@@ -1,116 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="120dp"
     android:layout_margin="8dp"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+    app:cardElevation="5dp"
     >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_countryName"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="3"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_countryFlag"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="EGYPT" />
+
+        <ImageView
+            android:id="@+id/img_countryFlag"
+            android:layout_width="90dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/country_flag"
+            android:padding="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_countryName"
+            app:layout_constraintEnd_toStartOf="@+id/tv_countryName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="4"
-            >
-
-            <ImageView
-                android:id="@+id/img_countryFlag"
-                android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:padding="8dp"
-                android:contentDescription="@string/country_flag"
-                android:layout_weight="1"/>
-
-            <TextView
-                android:id="@+id/tv_countryName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                tools:text="EGYPT"
-                style="@style/TextAppearance.AppCompat.Title"
-                android:padding="8dp"
-
-                />
-        </LinearLayout>
-
-        <View style="@style/Divider"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:orientation="horizontal"
             android:weightSum="3"
-            >
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_countryName">
+
             <TextView
+                style="@style/TextAppearance.AppCompat.Subhead"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@string/cases"
-                android:textAlignment="center"
-                style="@style/TextAppearance.AppCompat.Subhead"
-                android:layout_weight="1"
-                />
+                android:textAlignment="center" />
+
             <TextView
+                style="@style/TextAppearance.AppCompat.Subhead"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@string/recovered"
-                android:textAlignment="center"
-                style="@style/TextAppearance.AppCompat.Subhead"
-                android:layout_weight="1"
-                />
+                android:textAlignment="center" />
+
             <TextView
+                style="@style/TextAppearance.AppCompat.Subhead"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/deaths"
-                style="@style/TextAppearance.AppCompat.Subhead"
                 android:layout_weight="1"
-                android:textAlignment="center"
-                />
+                android:text="@string/deaths"
+                android:textAlignment="center" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/linearLayout3"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:orientation="horizontal"
             android:weightSum="3"
-            >
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
             <TextView
                 android:id="@+id/tv_countryCases"
+                style="@style/TextAppearance.AppCompat.Subhead"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                tools:text="@string/cases"
-                android:textAlignment="center"
-                style="@style/TextAppearance.AppCompat.Subhead"
                 android:layout_weight="1"
+                android:textAlignment="center"
                 android:textColor="@color/colorTotalConfirmed"
-                />
+                tools:text="@string/cases" />
+
             <TextView
                 android:id="@+id/tv_countryRecovered"
+                style="@style/TextAppearance.AppCompat.Subhead"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                tools:text="0"
-                android:textAlignment="center"
-                style="@style/TextAppearance.AppCompat.Subhead"
                 android:layout_weight="1"
+                android:textAlignment="center"
                 android:textColor="@color/colorTotalRecovered"
-                />
+                tools:text="0" />
+
             <TextView
                 android:id="@+id/tv_countryDeaths"
+                style="@style/TextAppearance.AppCompat.Subhead"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                tools:text="75111"
-                style="@style/TextAppearance.AppCompat.Subhead"
                 android:layout_weight="1"
                 android:textAlignment="center"
                 android:textColor="@color/colorTotalDeaths"
-                />
+                tools:text="75111" />
         </LinearLayout>
 
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.cardview.widget.CardView>

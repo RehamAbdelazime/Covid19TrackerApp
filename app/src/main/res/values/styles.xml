@@ -8,7 +8,14 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="fontFamily">@font/roboto_medium</item>
         <item name="android:windowActivityTransitions">true</item>
+        <item name="searchViewStyle">@style/SearchViewStyle</item>
+    </style>
 
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="searchIcon">@drawable/ic_search</item>
+        <item name="queryBackground">@color/White</item>
+        <item name="searchHintIcon">@null</item>
+        <item name="queryHint">@string/title_country</item>
     </style>
 
     <style name="Divider">

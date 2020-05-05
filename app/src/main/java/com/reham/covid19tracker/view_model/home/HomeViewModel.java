@@ -1,12 +1,10 @@
-package com.reham.covid19tracker.ui.home;
+package com.reham.covid19tracker.view_model.home;
 
 import android.util.Log;
 import android.widget.Toast;
 
-import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.LiveData;
+
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 
 import com.reham.covid19tracker.data.AllClient;
@@ -23,8 +21,8 @@ import retrofit2.Response;
 
 public class HomeViewModel extends ViewModel {
 
-    MutableLiveData<AllModel> allData = new MutableLiveData<>();
-    MutableLiveData<String> toastMessageObserver = new MutableLiveData();
+    public MutableLiveData<AllModel> allData = new MutableLiveData<>();
+    public MutableLiveData toastMessageObserver = new MutableLiveData();
 
     public HomeViewModel() {
     }

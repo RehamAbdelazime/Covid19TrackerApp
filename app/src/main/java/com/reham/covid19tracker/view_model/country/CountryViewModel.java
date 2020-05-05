@@ -1,4 +1,4 @@
-package com.reham.covid19tracker.ui.country;
+package com.reham.covid19tracker.view_model.country;
 
 import android.util.Log;
 
@@ -18,8 +18,8 @@ import retrofit2.Response;
 
 public class CountryViewModel extends ViewModel {
 
-    MutableLiveData<List<CountryModel>> countryModelMutableLiveData = new MutableLiveData<>();
-    MutableLiveData<String> toastMessageObserver = new MutableLiveData();
+    public MutableLiveData<List<CountryModel>> countryModelMutableLiveData = new MutableLiveData<>();
+    public MutableLiveData toastMessageObserver = new MutableLiveData();
 
     public void getAllCountriesData()
     {
@@ -40,7 +40,6 @@ public class CountryViewModel extends ViewModel {
 
             @Override
             public void onFailure(Call<List<CountryModel>> call, Throwable t) {
-                Log.e("VM", t.getMessage());
                 toastMessageObserver.setValue(t.getMessage());
             }
         });

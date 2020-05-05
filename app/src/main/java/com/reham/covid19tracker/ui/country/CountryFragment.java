@@ -1,14 +1,22 @@
 package com.reham.covid19tracker.ui.country;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.view.inputmethod.EditorInfo;
+import android.widget.Adapter;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -18,13 +26,16 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.reham.covid19tracker.R;
 import com.reham.covid19tracker.pojo.CountryModel;
+import com.reham.covid19tracker.view_model.country.CountryViewModel;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
-public class CountryFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
+public class CountryFragment extends Fragment{
 
     private CountryViewModel countryViewModel;
-    private SwipeRefreshLayout swipeRefreshLayout;
+    private CountryAdapter  adapter;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -32,14 +43,15 @@ public class CountryFragment extends Fragment implements SwipeRefreshLayout.OnRe
         countryViewModel.getAllCountriesData();
 
         View root = inflater.inflate(R.layout.fragment_country, container, false);
+        setHasOptionsMenu(true);
+
+        Toolbar toolbar = root.findViewById(R.id.toolbar);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+
         final RecyclerView recyclerView = root.findViewById(R.id.recyclerView);
 
-        swipeRefreshLayout = root.findViewById(R.id.swipeRefreshLayout);
-
-        swipeRefreshLayout.setOnRefreshListener(this);
-
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        final CountryAdapter  adapter = new CountryAdapter();
+        adapter = new CountryAdapter();
         recyclerView.setAdapter(adapter);
 
         countryViewModel.toastMessageObserver.observe(getViewLifecycleOwner(), new Observer<String>()
@@ -59,9 +71,26 @@ public class CountryFragment extends Fragment implements SwipeRefreshLayout.OnRe
         return root;
     }
 
+
+
     @Override
-    public void onRefresh() {
-        countryViewModel.getAllCountriesData();
-        swipeRefreshLayout.setRefreshing(false);
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.search_menu, menu);
+        MenuItem searchItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) searchItem.getActionView();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+        super.onCreateOptionsMenu(menu, inflater);
     }
 }

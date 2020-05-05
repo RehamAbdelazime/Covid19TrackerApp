@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.transition.Fade;
 import android.transition.Slide;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.Window;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -13,6 +15,7 @@ import com.reham.covid19tracker.ui.home.HomeFragment;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -28,8 +31,11 @@ public class MainActivity extends AppCompatActivity {
 
         getWindow().setEnterTransition(new Slide());
 
+
+
         BottomNavigationView navView = findViewById(R.id.nav_view);
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(navView, navController);
     }
+
 }

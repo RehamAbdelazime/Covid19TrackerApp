@@ -18,7 +18,7 @@
     <string name="country_flag">country flag</string>
     <string name="last_updated">Last updated</string>
 
-    <string name="title_activity_splash_screen">SplashScreenActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_splash_screen">Covid-19 World Tracker</string>
+    <string name="search">Search</string>
+
 </resources>

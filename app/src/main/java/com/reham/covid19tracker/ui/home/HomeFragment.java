@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.reham.covid19tracker.R;
 import com.reham.covid19tracker.pojo.AllModel;
+import com.reham.covid19tracker.view_model.home.HomeViewModel;
 
 public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
