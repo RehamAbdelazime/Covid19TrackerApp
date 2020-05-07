@@ -1,7 +1,6 @@
 package com.reham.covid19tracker.view_model.home;
 
 import android.util.Log;
-import android.widget.Toast;
 
 
 import androidx.lifecycle.MutableLiveData;
@@ -13,7 +12,6 @@ import com.reham.covid19tracker.pojo.AllModel;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -22,7 +20,7 @@ import retrofit2.Response;
 public class HomeViewModel extends ViewModel {
 
     public MutableLiveData<AllModel> allData = new MutableLiveData<>();
-    public MutableLiveData toastMessageObserver = new MutableLiveData();
+    public MutableLiveData<String> toastMessageObserver = new MutableLiveData<String>();
 
     public HomeViewModel() {
     }
@@ -40,6 +38,7 @@ public class HomeViewModel extends ViewModel {
                     try {
                         toastMessageObserver.setValue(response.errorBody().string());
                     } catch (IOException e) {
+                        Log.e("mm", e.getLocalizedMessage());
                         e.printStackTrace();
                     }
                 }

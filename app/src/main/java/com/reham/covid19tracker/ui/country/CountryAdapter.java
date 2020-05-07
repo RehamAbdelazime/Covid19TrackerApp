@@ -9,9 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.reham.covid19tracker.R;
+import com.reham.covid19tracker.databinding.CountryItemBinding;
 import com.reham.covid19tracker.pojo.CountryModel;
 import com.squareup.picasso.Picasso;
 
@@ -22,6 +24,7 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
 {
     private List<CountryModel> countries = new ArrayList<>();
     private List<CountryModel> allCountries;
+    private CountryItemBinding binding;
 
     public CountryAdapter() {
 
@@ -36,16 +39,14 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
     @NonNull
     @Override
     public CountryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.country_item, parent, false);
-        return new CountryAdapter.CountryViewHolder(view);
+        binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.country_item, parent, false);
+        return new CountryAdapter.CountryViewHolder(binding.getRoot());
     }
 
     @Override
     public void onBindViewHolder(@NonNull CountryViewHolder holder, int position) {
-        holder.tv_countryName.setText(countries.get(position).getCountry());
-        holder.tv_countryCases.setText(countries.get(position).getCases());
-        holder.tv_countryRecovered.setText(countries.get(position).getRecovered());
-        holder.tv_countryDeaths.setText(countries.get(position).getDeaths());
+        binding.setViewModel(countries.get(position));
+
         Picasso.get().load(countries.get(position).getCountryInfo().getFlag())
                 .placeholder(R.drawable.ic_broken_image)
                 .error(R.drawable.ic_broken_image)
@@ -103,15 +104,10 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
 
     public class CountryViewHolder extends RecyclerView.ViewHolder
     {
-        TextView tv_countryName, tv_countryCases, tv_countryRecovered, tv_countryDeaths;
         ImageView img_countryFlag;
 
         public CountryViewHolder(@NonNull View itemView) {
             super(itemView);
-            tv_countryName = itemView.findViewById(R.id.tv_countryName);
-            tv_countryCases = itemView.findViewById(R.id.tv_countryCases);
-            tv_countryRecovered = itemView.findViewById(R.id.tv_countryRecovered);
-            tv_countryDeaths = itemView.findViewById(R.id.tv_countryDeaths);
             img_countryFlag = itemView.findViewById(R.id.img_countryFlag);
         }
     }
